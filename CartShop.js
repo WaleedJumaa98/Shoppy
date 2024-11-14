@@ -30,8 +30,8 @@ class CartShop extends HTMLElement {
   handleClick() {
     // Dispatch a custom 'increment-cart' event for the mediator to listen to
     const event = new CustomEvent("increment-cart", {
-      bubbles: true,
-      composed: true,
+      bubbles: true, //the event will bubble up through the DOM, allowing parent elements or other listeners to catch it.
+      composed: true, //the event will pass through the shadow DOM boundary
     });
     document.dispatchEvent(event);
   }
