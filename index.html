@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Button Component</title>
+    <script src="./CartButton.js"></script>
+    <script src="./CartShop.js"></script>
+    <script src="./CartMediator.js"></script>
+</head>
+
+<body>
+
+
+    <cart-button id="cartButton"></cart-button>
+    <cart-shop id="cartShop"></cart-shop>
+
+    <script>
+        const cartButton = document.getElementById("cartButton");
+        const cartShop = document.getElementById("cartShop");
+
+        // Add components to the mediator
+        cartMediator.addListeners(cartButton, cartShop);
+    </script>
+
+
+
+</body>
+
+</html>
