@@ -1,21 +1,27 @@
 class CartMediator {
-  constructor() {
+  constructor(cartButton) {
     this.cartCount = 0;
-  }
-
-  // Add listeners for all CartShop instances
-  addListeners(cartButton) {
     this.cartButton = cartButton;
 
-    // Listen for 'increment-cart' events from any CartShop instance
+    // Listen for 'increment-cart' events from CartShop
     document.addEventListener("increment-cart", this.incrementCart.bind(this));
   }
 
-  // Increment the cart count and update CartButton
   incrementCart() {
+    // Logic to increment the cart count
     this.cartCount++;
-    this.cartButton.updateCounterDisplay(this.cartCount);
+
+    // Notify CartButton to update the display
+    this.updateCartButton();
+  }
+
+  updateCartButton() {
+    // Dispatch a 'cart-updated' event to update the CartButton display
+    const event = new CustomEvent("cart-updated", {
+      detail: { cartCount: this.cartCount },
+      bubbles: true,
+      composed: true,
+    });
+    window.dispatchEvent(event);
   }
 }
-
-const cartMediator = new CartMediator();

@@ -1,7 +1,13 @@
-// Wait for the DOM to load before accessing elements
-document.addEventListener("DOMContentLoaded", () => {
-  const cartButton = document.getElementById("cartButton");
+// Main script to wire up components
+const cartButton = document.querySelector("cart-button");
+const cartShops = document.querySelectorAll("cart-shop");
 
-  // Add components to the mediator
-  cartMediator.addListeners(cartButton);
+// Create the CartMediator instance and pass the CartButton instance to it
+const cartMediator = new CartMediator(cartButton);
+
+// Optional: If you have multiple CartShop instances, no need to listen individually
+cartShops.forEach((cartShop) => {
+  cartShop.addEventListener("increment-cart", () => {
+    cartMediator.incrementCart();
+  });
 });

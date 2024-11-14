@@ -9,7 +9,7 @@ class CartShop extends HTMLElement {
   getTemplate() {
     const template = document.createElement("template");
     template.innerHTML = `
-      <link rel="stylesheet" href="cart-shop.css"> 
+      <link rel="stylesheet" href="cart-shop.css">
       <button class="increment-button">🛒</button>
     `;
     return template;

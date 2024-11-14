@@ -10,7 +10,7 @@ class CartButton extends HTMLElement {
   getTemplate() {
     const template = document.createElement("template");
     template.innerHTML = `
-      <link rel="stylesheet" href="cart-button.css"> <!-- Link to external CSS -->
+      <link rel="stylesheet" href="cart-button.css"> 
       <div class="cart-container">
         <span class="cart-counter">0</span>
         <button class="cart-icon">🛒</button>
@@ -23,20 +23,23 @@ class CartButton extends HTMLElement {
     this.cartIcon = this.shadowRoot.querySelector(".cart-icon");
     this.cartCounter = this.shadowRoot.querySelector(".cart-counter");
 
-    // Listen for custom 'increment-cart' events from other components
-    window.addEventListener("increment-cart", this.incrementCart.bind(this));
+    // Listen for 'cart-updated' event to update the count display
+    window.addEventListener(
+      "cart-updated",
+      this.updateCounterDisplay.bind(this)
+    );
   }
 
   disconnectedCallback() {
-    window.removeEventListener("increment-cart", this.incrementCart.bind(this));
+    window.removeEventListener(
+      "cart-updated",
+      this.updateCounterDisplay.bind(this)
+    );
   }
 
-  incrementCart() {
-    this.cartCount++;
-    this.updateCounterDisplay();
-  }
-
-  updateCounterDisplay() {
+  updateCounterDisplay(event) {
+    // Update the cart count based on the event
+    this.cartCount = event.detail.cartCount;
     this.cartCounter.style.display = this.cartCount > 0 ? "flex" : "none";
     this.cartCounter.textContent = this.cartCount;
   }
