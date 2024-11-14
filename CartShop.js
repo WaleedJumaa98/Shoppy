@@ -15,7 +15,7 @@ class CartShop extends HTMLElement {
           cursor: pointer;
           background: none;
           border: none;
-          padding: 10px;
+          padding: 5px;
           outline: none;
         }
 

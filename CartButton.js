@@ -20,7 +20,7 @@ class CartButton extends HTMLElement {
           cursor: pointer;
           background: none;
           border: none;
-          padding: 10px;
+          padding: 5px;
           outline: none;
         }
 
@@ -31,8 +31,8 @@ class CartButton extends HTMLElement {
 
         .cart-counter {
           position: absolute;
-          top: -10px;
-          right: -10px;
+          top: -8px;
+          right: -8px;
           background-color: red;
           color: white;
           font-size: 14px;
