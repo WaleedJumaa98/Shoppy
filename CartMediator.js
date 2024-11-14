@@ -3,16 +3,15 @@ class CartMediator {
     this.cartCount = 0;
   }
 
-  // Method to add listeners for cartButton and cartShop
-  addListeners(cartButton, cartShop) {
-    // Store the CartButton instance to call update on it
+  // Add listeners for all CartShop instances
+  addListeners(cartButton) {
     this.cartButton = cartButton;
 
-    // Listen for 'increment-cart' events from CartShop
-    cartShop.addEventListener("increment-cart", this.incrementCart.bind(this));
+    // Listen for 'increment-cart' events from any CartShop instance
+    document.addEventListener("increment-cart", this.incrementCart.bind(this));
   }
 
-  // Method to increment the cart count and update CartButton
+  // Increment the cart count and update CartButton
   incrementCart() {
     this.cartCount++;
     this.cartButton.updateCounterDisplay(this.cartCount);

@@ -20,7 +20,7 @@ class CartButton extends HTMLElement {
           cursor: pointer;
           background: none;
           border: none;
-          padding: 0;
+          padding: 10px;
           outline: none;
         }
 

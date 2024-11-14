@@ -42,12 +42,12 @@ class CartShop extends HTMLElement {
   }
 
   handleClick() {
-    // Emit a custom 'increment-cart' event for the mediator to listen to
+    // Dispatch a custom 'increment-cart' event for the mediator to listen to
     const event = new CustomEvent("increment-cart", {
       bubbles: true,
       composed: true,
     });
-    this.dispatchEvent(event);
+    document.dispatchEvent(event);
   }
 }
 

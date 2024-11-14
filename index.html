@@ -8,23 +8,18 @@
     <script src="./CartButton.js"></script>
     <script src="./CartShop.js"></script>
     <script src="./CartMediator.js"></script>
+    <script src="./main.js"></script>
+
 </head>
 
 <body>
 
-
     <cart-button id="cartButton"></cart-button>
-    <cart-shop id="cartShop"></cart-shop>
+    <cart-shop id="cartShop1"></cart-shop>
+    <cart-shop id="cartShop2"></cart-shop>
+    <cart-shop id="cartShop3"></cart-shop>
 
-    <script>
-        const cartButton = document.getElementById("cartButton");
-        const cartShop = document.getElementById("cartShop");
-
-        // Add components to the mediator
-        cartMediator.addListeners(cartButton, cartShop);
-    </script>
-
-
+    <!-- External script for DOM manipulation -->
 
 </body>
 
